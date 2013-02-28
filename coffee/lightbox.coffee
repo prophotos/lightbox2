@@ -8,7 +8,7 @@ http://lokeshdhakar.com/projects/lightbox2/
 Licensed under the Creative Commons Attribution 2.5 License - http://creativecommons.org/licenses/by/2.5/
 - free for use in both personal and commercial projects
 - attribution requires leaving author name, author link, and the license info intact
-	
+  
 Thanks
 - Scott Upton(uptonic.com), Peter-Paul Koch(quirksmode.com), and Thomas Fuchs(mir.aculo.us) for ideas, libs, and snippets.
 - Artemy Tregubenko (arty.name) for cleanup and help in updating to latest proto-aculous in v2.05.
@@ -76,37 +76,8 @@ class Lightbox
   # Build html for the lightbox and the overlay.
   # Attach event handlers to the new DOM elements. click click click
   build: ->
-    $("<div>", id: 'lightboxOverlay' ).after(
-      $('<div/>', id: 'lightbox').append(
-        $('<div/>', class: 'lb-outerContainer').append(
-          $('<div/>', class: 'lb-container').append(
-            $('<img/>', class: 'lb-image'),
-            $('<div/>',class: 'lb-nav').append(
-              $('<a/>', class: 'lb-prev'),
-              $('<a/>', class: 'lb-next')
-            ),
-            $('<div/>', class: 'lb-loader').append(
-              $('<a/>', class: 'lb-cancel').append(
-                $('<img/>', src: @options.fileLoadingImage)
-              )
-            )
-          )
-        ),
-        $('<div/>', class: 'lb-dataContainer').append(
-          $('<div/>', class: 'lb-data').append(          
-            $('<div/>', class: 'lb-details').append(
-              $('<span/>', class: 'lb-caption'),
-              $('<span/>', class: 'lb-number')
-            ),
-            $('<div/>', class: 'lb-closeContainer').append(
-              $('<a/>', class: 'lb-close').append(
-                $('<img/>', src: @options.fileCloseImage)
-              )
-            )
-          )
-        )
-      )
-    ).appendTo $('body')
+    $("<div id='lightboxOverlay'></div><div id='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' ><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + @options.fileLoadingImage + "'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + @options.fileCloseImage + "'></a></div></div></div></div>").appendTo($('body'));
+
 
     # Attach event handlers to the newly minted DOM elements
     $('#lightboxOverlay')
